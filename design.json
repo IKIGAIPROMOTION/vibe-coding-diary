@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "name": "Vibe Coding Diary — design system",
+    "version": "1.0.0",
+    "localeContent": "ru",
+    "referenceNote": "Референс-скриншот к запросу не приложён. Система задана как направление «редакционный бумажный дневник»: тёплая палитра, серифы, линейная вёрстка, без неоновых градиентов и «дефолтного ИИ-UI». Если появится скриншот — заменить разделы color, typography и components под пиксельное совпадение.",
+    "intentForAi": "Используй этот файл как единственный источник визуальной правды для этого проекта: токены, иерархия, отступы, характер компонентов. Не подменяй стиль на типичный тёмный дашборд, Inter-only, фиолетовые акценты и сильные скругления карточек."
+  },
+  "designStyle": {
+    "label": "Editorial paper journal",
+    "summary": "Ощущение личного блокнота и газетной колонки: светлый фон бумаги, тёмные чернила, один спокойный акцент, много воздуха между записями. Интерфейс вторичен по отношению к тексту.",
+    "mood": ["спокойный", "читабельный", "чуть архивный", "не «продуктовый SaaS»"],
+    "avoid": [
+      "Тёмная тема по умолчанию и «космические» сине-фиолетовые градиенты",
+      "Один универсальный геометрический sans для всего интерфейса",
+      "Крупные скругления 12–16px на каждом блоке и тяжёлые тени",
+      "Неоновые обводки и свечения вокруг карточек",
+      "Перегруженные иконки и бейджи"
+    ]
+  },
+  "designPrinciples": [
+    {
+      "title": "Текст — главный герой",
+      "description": "Заголовки и абзацы заметок визуально доминируют. Хром UI (фильтры, счётчик) мельче и нейтральнее, не конкурирует с телом записи."
+    },
+    {
+      "title": "Один акцентный цвет",
+      "description": "Ссылки, дата, акцентная линия у инсайта — в одном семействе (здесь: сдержанный сине-зелёный чернильный). Не вводить второй яркий бренд-цвет без необходимости."
+    },
+    {
+      "title": "Линии вместо объёма",
+      "description": "Разделение секций — тонкие правила 1px и отступы. Тени минимальны или отсутствуют; глубина за счёт слоя бумаги (чуть более светлая карточка на тёплом поле)."
+    },
+    {
+      "title": "Ритм 4px",
+      "description": "Все вертикальные и горизонтальные отступы кратны 4px (8, 12, 16, 24, 32, 48), кроме осознанных исключений для оптической компенсации."
+    },
+    {
+      "title": "Иерархия через кегль и насыщенность",
+      "description": "Не полагаться на цвет радуги для структуры. Заголовок записи — сериф, крупнее тела; подписи и метки — мелкий sans caps или полукапительный ритм."
+    }
+  ],
+  "layout": {
+    "pageMaxWidth": "42rem",
+    "pageHorizontalPadding": "1.25rem",
+    "pageVerticalPadding": { "top": "2rem", "bottom": "4rem" },
+    "contentAlignment": "по левому краю, без центрирования основного потока",
+    "readingMeasure": "оптимально до ~65ch для вводного текста (lead); карточка записи — на всю ширину колонки"
+  },
+  "spacing": {
+    "baseUnitPx": 4,
+    "scale": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "0.75rem",
+      "lg": "1rem",
+      "xl": "1.5rem",
+      "2xl": "2rem",
+      "3xl": "3rem"
+    },
+    "sectionGaps": {
+      "afterHeader": "2rem",
+      "toolbarToList": "1.5rem",
+      "betweenEntries": "1.75rem"
+    }
+  },
+  "typography": {
+    "fontStacks": {
+      "display": "'Fraunces', 'Georgia', 'Times New Roman', serif",
+      "body": "'Source Serif 4', 'Georgia', serif",
+      "ui": "'IBM Plex Sans', system-ui, sans-serif",
+      "mono": "ui-monospace, 'Cascadia Code', 'Consolas', monospace"
+    },
+    "weights": {
+      "displaySemibold": 600,
+      "displayBold": 700,
+      "bodyRegular": 400,
+      "bodySemibold": 600,
+      "uiMedium": 500,
+      "uiSemibold": 600
+    },
+    "scale": {
+      "siteTitle": { "size": "clamp(1.5rem, 4vw, 1.85rem)", "lineHeight": 1.2, "letterSpacing": "-0.02em", "font": "display" },
+      "entryTopic": { "size": "1.2rem", "lineHeight": 1.3, "font": "display", "weight": "displaySemibold" },
+      "body": { "size": "1rem", "lineHeight": 1.6, "font": "body" },
+      "lead": { "size": "0.95rem", "lineHeight": 1.55, "font": "body", "colorRole": "muted" },
+      "label": { "size": "0.7rem", "lineHeight": 1.3, "font": "ui", "transform": "uppercase", "letterSpacing": "0.08em", "colorRole": "muted" },
+      "meta": { "size": "0.85rem", "lineHeight": 1.4, "font": "ui", "colorRole": "accent" },
+      "tag": { "size": "0.65rem", "lineHeight": 1.2, "font": "ui", "transform": "uppercase", "letterSpacing": "0.06em" },
+      "sectionHeading": { "size": "0.72rem", "lineHeight": 1.3, "font": "ui", "transform": "uppercase", "letterSpacing": "0.07em", "colorRole": "muted", "weight": "uiSemibold" },
+      "footer": { "size": "0.78rem", "lineHeight": 1.45, "font": "ui", "colorRole": "muted" }
+    },
+    "features": {
+      "tabularFigures": "для дат (font-variant-numeric: tabular-nums)",
+      "russianLocale": "кириллица должна читаться комфортно в выбранных шрифтах Google Fonts"
+    }
+  },
+  "color": {
+    "roles": {
+      "canvas": { "hex": "#f3efe6", "usage": "фон всей страницы, тёплая бумага" },
+      "surface": { "hex": "#fffcf7", "usage": "карточка записи, поля ввода — чуть светлее поля" },
+      "surfaceMuted": { "hex": "#f0ebe3", "usage": "фон цитаты-инсайта" },
+      "ink": { "hex": "#252018", "usage": "основной текст" },
+      "muted": { "hex": "#5c574f", "usage": "вторичный текст, подписи" },
+      "rule": { "hex": "#dcd4c8", "usage": "границы, разделители" },
+      "ruleStrong": { "hex": "#c9bfb2", "usage": "нижняя линия шапки при необходимости" },
+      "accent": { "hex": "#1e4d48", "usage": "дата, ссылки при наведении/фокусе, левая граница инсайта" },
+      "accentSoft": { "hex": "#2d6a62", "usage": "ссылки в покое — чуть мягче основного акцента" },
+      "focusRing": { "hex": "#1e4d48", "usage": "outline полей формы" }
+    },
+    "interaction": {
+      "linkDefault": "accentSoft",
+      "linkHover": "accent",
+      "inputBorder": "rule",
+      "inputBorderFocus": "accent"
+    }
+  },
+  "radii": {
+    "none": "0",
+    "sm": "4px",
+    "md": "6px",
+    "principle": "Скругления маленькие и сдержанные; избегать «пилюль» на тегах — достаточно 4px."
+  },
+  "elevation": {
+    "card": "без тени или тень 0 1px 0 rgba(37,32,24,0.06) — едва заметная",
+    "principle": "Не использовать многослойные drop-shadow для карточек."
+  },
+  "motion": {
+    "principle": "Почти без анимаций; допустимы короткие переходы цвета ссылки и border у полей (150–200ms ease).",
+    "respectReducedMotion": true
+  },
+  "components": {
+    "pageShell": {
+      "role": "Корневая колонка контента",
+      "structure": "Один центрированный столбец max-width 42rem, фон canvas",
+      "spacing": "layout.pageVerticalPadding + layout.pageHorizontalPadding"
+    },
+    "siteHeader": {
+      "role": "Название дневника и вводный абзац",
+      "structure": "H1 site title (display), затем lead (body, muted)",
+      "separator": "1px solid rule под блоком, отступ снизу sectionGaps.afterHeader"
+    },
+    "lead": {
+      "role": "Пояснение под заголовком",
+      "typography": "typography.scale.lead",
+      "codeInline": "шрифт mono, фон surface, тонкая рамка rule, padding 0.1em 0.35em, radius sm"
+    },
+    "toolbar": {
+      "role": "Фильтр и поиск",
+      "layout": "flex wrap, gap spacing.md; на широком экране счётчик записей прижат вправо (margin-left: auto)",
+      "labels": "typography.scale.label над контролами"
+    },
+    "formSelect": {
+      "role": "Выпадающий список области",
+      "surface": "surface",
+      "border": "1px solid rule",
+      "radius": "radii.sm",
+      "padding": "0.5rem 0.65rem",
+      "typography": "ui 0.9rem",
+      "focus": "outline 2px solid focusRing, outline-offset 2px"
+    },
+    "formSearch": {
+      "role": "Поиск по заметкам",
+      "sameAs": "formSelect",
+      "minWidth": "14rem"
+    },
+    "metaCount": {
+      "role": "Число найденных записей",
+      "typography": "ui 0.85rem muted; strong — ink"
+    },
+    "diaryList": {
+      "role": "Вертикальный список записей",
+      "gap": "sectionGaps.betweenEntries"
+    },
+    "entryCard": {
+      "role": "Одна заметка",
+      "background": "surface",
+      "border": "1px solid rule",
+      "radius": "radii.md",
+      "padding": "1.25rem 1.35rem",
+      "elevation": "elevation.card"
+    },
+    "entryHeader": {
+      "role": "Тема + мета (дата и теги)",
+      "spacingBelow": "spacing.md"
+    },
+    "entryTopic": {
+      "role": "Заголовок заметки",
+      "typography": "typography.scale.entryTopic",
+      "color": "ink"
+    },
+    "entryMeta": {
+      "role": "Строка с датой и тегами областей",
+      "layout": "flex wrap, gap sm–md по вертикали/горизонтали"
+    },
+    "entryDate": {
+      "role": "Дата формирования заметки",
+      "typography": "typography.scale.meta",
+      "color": "accent",
+      "tabularNumbers": true
+    },
+    "tag": {
+      "role": "Область фокуса (категория)",
+      "shape": "прямоугольник с radii.sm, не капсула",
+      "background": "canvas",
+      "border": "1px solid rule",
+      "text": "muted",
+      "padding": "0.2em 0.5em"
+    },
+    "tagTool": {
+      "role": "Упомянутый инструмент",
+      "variantOf": "tag",
+      "textTransform": "none",
+      "letterSpacing": "normal"
+    },
+    "entrySummary": {
+      "role": "Краткое резюме под заголовком",
+      "typography": "body 0.92rem",
+      "color": "muted"
+    },
+    "insight": {
+      "role": "Главный вывод (blockquote)",
+      "background": "surfaceMuted",
+      "leftBorder": "4px solid accent",
+      "padding": "0.75rem 1rem",
+      "radius": "0 radii.md radii.md 0 (скругление только справа)",
+      "typography": "body 0.95rem italic optional — здесь без italic для ясности кириллицы"
+    },
+    "entryBody": {
+      "role": "Основной текст параграфами",
+      "typography": "typography.scale.body",
+      "paragraphSpacing": "0.65em между абзацами"
+    },
+    "sectionBlock": {
+      "role": "«Дальше», «Источники»",
+      "separator": "1px solid rule сверху, margin-top lg, padding-top lg",
+      "heading": "typography.scale.sectionHeading"
+    },
+    "link": {
+      "role": "Ссылки в списке источников",
+      "defaultColor": "accentSoft",
+      "hoverColor": "accent",
+      "underline": "none по умолчанию, underline при hover",
+      "weight": "uiMedium"
+    },
+    "listBulleted": {
+      "role": "Списки nextSteps и sources",
+      "size": "0.9rem",
+      "indent": "1.15rem"
+    },
+    "emptyState": {
+      "role": "Нет записей по фильтру",
+      "alignment": "center",
+      "padding": "2.5rem 1rem",
+      "color": "muted"
+    },
+    "siteFooter": {
+      "role": "Техническая подсказка внизу",
+      "separator": "1px rule сверху, margin-top 3xl",
+      "typography": "typography.scale.footer"
+    }
+  }
+}
